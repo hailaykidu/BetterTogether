@@ -1,0 +1,5 @@
+echo "streamlit
+pandas
+supabase
+plotly
+python-dotenv" > requirements.txt
