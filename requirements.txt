@@ -21,4 +21,9 @@ scikit-learn
 supabase
 supabase-py
 python-dotenv
+streamlit
+supabase-py
+python-dotenv
+pandas
+requests
 
