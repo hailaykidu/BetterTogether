@@ -1358,10 +1358,9 @@ menu = st.sidebar.radio(get_text('navigation'), menu_options)
 # Add contact info in sidebar
 st.sidebar.markdown("---")
 st.sidebar.markdown(f"### 📞 {get_text('contact_admin')}")
-st.sidebar.markdown(f"**{get_text('phone_contact')}:** +49-176-451-74080")
-st.sidebar.markdown(f"**{get_text('email_contact')}:** admin@communitymatcher.org")
+st.sidebar.markdown(f"**{get_text('email_contact')}:** hailay.kidu@mu.edu.et")
 st.sidebar.markdown(f"**{get_text('office_hours')}:** 8:00 AM - 6:00 PM")
-st.sidebar.markdown(f"**{get_text('emergency_contact')}:** +251-91-111-2222")
+st.sidebar.markdown(f"**{get_text('emergency_contact')}:** +49-176-451-74080 (WhatsApp only)")
 
 # -------------------------
 # Admin login only on Admin page
@@ -1391,65 +1390,6 @@ if menu == get_text('home'):
             st.warning(get_text('features_disabled'))
             for warning in st.session_state["schema_warnings"]:
                 st.write(f"- {warning}")
-# #Beneficiary Registration Section
-# elif menu == get_text('register_beneficiary'):
-#     st.subheader(get_text('beneficiaries'))
-#     with st.form("beneficiary_form"):
-#         full_name = st.text_input(get_text('full_name'))
-#         email = st.text_input(get_text('email'))
-#         phone = st.text_input(get_text('phone_contact'))
-#         bank_account = st.text_input("Bank Account")
-#         submit = st.form_submit_button("Register Beneficiary")
-
-#         if submit:
-#             if full_name and email and phone and bank_account:
-#                 if not is_valid_email(email):
-#                     st.error(get_text('invalid_email'))
-#                 elif not is_valid_phone(phone):
-#                     st.error(get_text('invalid_phone'))
-#                 else:
-#                     data = {
-#                         "full_name": full_name,
-#                         "email": email,
-#                         "phone": phone,
-#                         "bank_account": bank_account,
-#                         "submitted_at": datetime.now().isoformat()
-#                     }
-#                     if insert_record("beneficiaries", data):
-#                         st.success("Beneficiary registered successfully.")
-#                     else:
-#                         st.error("Failed to register Beneficiary.")
-#             else:
-#                 st.error(get_text('complete_required_fields'))
-
-#     # Supporter Registration Section
-# elif menu == get_text('register_supporter'):
-#     st.subheader(get_text('supporters'))
-#     with st.form("supporter_form"):
-#         full_name = st.text_input(get_text('full_name'))
-#         email = st.text_input(get_text('email'))
-#         phone = st.text_input(get_text('phone_contact'))
-#         submit = st.form_submit_button("Register Supporter")
-
-#         if submit:
-#             if full_name and email and phone:
-#                 if not is_valid_email(email):
-#                     st.error(get_text('invalid_email'))
-#                 elif not is_valid_phone(phone):
-#                     st.error(get_text('invalid_phone'))
-#                 else:
-#                     data = {
-#                         "full_name": full_name,
-#                         "email": email,
-#                         "phone": phone,
-#                         "submitted_at": datetime.now().isoformat()
-#                     }
-#                     if insert_record("supporters", data):
-#                         st.success("Supporter registered successfully.")
-#                     else:
-#                         st.error("Failed to register Supporter.")
-#             else:
-#                 st.error(get_text('complete_required_fields'))
 
 elif menu == get_text('register_beneficiary'):
     st.subheader(get_text('register_beneficiary'))
@@ -1633,3 +1573,6 @@ elif menu == get_text('reports'):
             )
         else:
             st.info(get_text('no_records').format(table=get_text('matches').lower()))
+    else:
+        st.warning(get_text('matches_disabled'))      
+
